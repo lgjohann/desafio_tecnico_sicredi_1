@@ -1,0 +1,23 @@
+[project]
+name = "rpa_sicredi"
+version = "0.1.0"
+description = "Projeto RPA do desafio técnico para extrair informações do site do Sicredi Conexão."
+authors = [
+    {name = "Guilherme Johann", email = "guilherme4695@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "selenium (>=4.38.0,<5.0.0)",
+    "pandas (>=2.3.3,<3.0.0)",
+    "webdriver-manager (>=4.0.2,<5.0.0)",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "fawltydeps (>=0.20.0,<0.21.0)"
+]
