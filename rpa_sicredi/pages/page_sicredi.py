@@ -27,13 +27,14 @@ class PageSicredi(PageSystemMixin, PageElementMixIn):
         """
         Abre o menu 'Produtos', lê as colunas do dropdown e salva em CSV.
         """
-
+        # 1 - Fecha o banner de cookies (se aparecer) e abre o menu de Produtos
         try:
             self.wait5_element_and_click(self.BTN_ALLOW_COOKIES)
             print("Banner de cookies fechado.")
             sleep(1)
         except Exception:
             print("Banner de cookies não apareceu ou não foi necessário.")
+            pass
 
 
         print("Abrindo menu de Produtos...")
@@ -45,7 +46,7 @@ class PageSicredi(PageSystemMixin, PageElementMixIn):
             print(error_message)
             raise Exception(error_message)
 
-        # 2. encontra as 3 colunas (Você, Empresa, Agro)
+        # 2 - encontra as 3 colunas (Você, Empresa, Agro)
         try:
             colunas_parent = self.finds(self.COLUNA_CATEGORIAS)
 
@@ -59,7 +60,7 @@ class PageSicredi(PageSystemMixin, PageElementMixIn):
 
         dados_extraidos = []
 
-        # 3. Itera sobre cada coluna para extrair dados
+        # 3 - itera sobre cada coluna para extrair dados
         for coluna in colunas:
             try:
                 elemento_titulo = coluna.find_element(*self.LOCATOR_TITULO_RELATIVO)
@@ -84,7 +85,7 @@ class PageSicredi(PageSystemMixin, PageElementMixIn):
                 print(error_message)
                 raise Exception(error_message)
 
-        # 4. Salva no CSV
+        # 4 - salva no CSV
         if dados_extraidos:
             self.__save_to_csv(dados_extraidos, csv_path)
             print(f"Sucesso! {len(dados_extraidos)} linhas adicionadas ao CSV.")
