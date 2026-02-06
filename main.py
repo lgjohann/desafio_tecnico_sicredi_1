@@ -47,7 +47,7 @@ while loop == 'ON':
                     csv_manager.save_file()                
                 webdriver_setup = WebdriverSetup()
                 webdriver = webdriver_setup.generate_webdriver()
-                webdriver.minimize_window()
+                webdriver.maximize_window()
                 
                 page_sicredi = PageSicredi(webdriver)
                 page_sicredi.open_url(url_sicredi);
