@@ -37,6 +37,12 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
+**No CMD:**
+
+```bash
+.\.venv\Scripts\Activate.bat
+```
+
 
 _Em caso de erro de permissão para execução de scripts, execute este comando para liberar a execução e tente novamente:_
 ```bash
